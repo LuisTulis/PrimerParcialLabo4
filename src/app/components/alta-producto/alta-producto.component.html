@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<body>
+    <div class="navbar" style="background-color: #333; color: white; padding: 10px;">
+        <button (click)="redirigirHome()">Volver atrás</button>
+    </div>
+    <div class="container" style="background-color: #813757; border: 0px;">
+        <h1>Alta de productos</h1>
+        <div class="content-container">
+            <div class="form-container">
+                <form id="actorForm">
+                    <div class="form-group">
+                        <label for="Codigo">Codigo:</label>
+                        <input type="text" id="Codigo" name="Codigo" [(ngModel)]="this.codigoIngresado" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Precio">Precio:</label>
+                        <input type="number" id="Precio" name="Precio" [(ngModel)]="this.precioIngresado" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Descripcion">Descripcion:</label>
+                        <textarea id="Descripcion" name="Descripcion" rows="4" [(ngModel)]="this.descripcionIngresada" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="Stock">Stock:</label>
+                        <textarea type="number" id="Stock" name="Stock" [(ngModel)]="this.stockIngresado" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="Comestible">Es comestible:</label>
+                        <input type="checkbox" id="Comestible" name="Comestible" [(ngModel)]="esComestible" required>
+                    </div>
+                    <div class="form-group boton" >
+                        <button (click)="guardarProducto()">Dar de alta</button>
+                    </div>
+                </form>
+            </div>
+            <div class="list-container">
+                <div >
+                    <app-tabla-paises (paisSeleccionadoEvent)="procesarPaisSeleccionado($event)"></app-tabla-paises>
+                </div>
+            </div>
+            <div *ngIf="errorMessage" class="error-message" style="top:77%; right: 20%; position: absolute;">
+                {{ errorMessage }}
+            </div>
+            <div *ngIf="logeoExitoso" class="success-message">
+                Producto registrado con exito.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

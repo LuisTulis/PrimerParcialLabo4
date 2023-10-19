@@ -1,0 +1,16 @@
+<div class="card-container">
+    <input [(ngModel)]="filtroNombre" placeholder="Filtrar por nombre">
+    <div *ngFor="let pais of filtrarPaises()" class="card" (click)="seleccionarPais(pais)">
+      <div class="card-content" [class.selected]="pais === paisSeleccionado">
+        <h2>{{ pais.name.common }}</h2>
+        <p><strong>Continente:</strong> {{ pais.continents[0] }}</p>
+        <p><strong>Idiomas:</strong></p>
+          <ul>
+            <li *ngFor="let idioma of pais.languages | keyvalue">{{ idioma.value }}</li>
+          </ul>
+      </div>
+      <div class="card-flag">
+        <img [src]="pais.flags.png" alt="{{ pais.name.common }} Flag">
+      </div>
+    </div>
+  </div>

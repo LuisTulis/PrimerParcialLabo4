@@ -1,0 +1,49 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background-color: #A24D6B;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    max-width: 400px; /* Ajusta el ancho máximo de cada tarjeta según tus necesidades */
+  }
+  
+  .card-content {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .card-flag {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  img {
+    max-width: 100%; /* Ajusta el tamaño de la imagen de la bandera para que se ajuste a su contenedor */
+    height: auto;
+  }
+
+  input {
+    background-color: #A24D6B; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Borde redondeado */
+    padding: 5px 10px; /* Espaciado interno */
+    margin: 10px; /* Margen exterior */
+    max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
+    outline: none; /* Quita el resaltado predeterminado al hacer clic en el input */
+    font-size: 16px; /* Tamaño de fuente */
+  }
+  
+  input::placeholder {
+    color: #ccc; /* Color del marcador de posición */
+  }
+  .selected {
+    background-color: #C0677D; /* Cambia el color de fondo a azul */
+    color: #fff; /* Cambia el color del texto a blanco */
+  }
