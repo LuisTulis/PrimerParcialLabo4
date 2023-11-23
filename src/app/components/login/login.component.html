@@ -19,16 +19,16 @@
 
 			<!-- Botón para iniciar sesión -->
 			<button (click)="login()" type="submit">Iniciar Sesión</button>
+			<p>¿No tenes una cuenta?</p>
+			<button (click)="registrarse()" type="submit">Registrate</button>
 
-			
+			<div class="quick-access-buttons">
+				<button (click)="quickLogin('admin@admin.com', '123456')">Usuario 1</button>
+				<button (click)="quickLogin('empleado@empleado.com', '123456')">Usuario 2</button>
+			</div>
 		</form>
 
-		<div *ngIf="errorMessage" class="error-message">
-            {{ errorMessage }}
-        </div>
-        <div *ngIf="logeoExitoso" class="success-message">
-            Ingreso exitoso, redirigiendo. . .
-        </div>
+		
 
 		<div class="esferas-container">
 			<!-- Esferas decorativas -->

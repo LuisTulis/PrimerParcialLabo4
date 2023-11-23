@@ -1,0 +1,66 @@
+<body>
+    <div class="navbar" style="background-color: #333; color: white; padding: 10px;">
+      <button (click)="redirigirHome()">Volver atrás</button>
+    </div>  
+      <main>
+        <div class="container py-4">
+          <header class="pb-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            </a>
+          </header>
+      
+          <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+              <h1 class="display-5 fw-bold">Cargar producto</h1>
+                <div *ngIf="productoSeleccionado && containerSeleccionado">
+                    <label for="cantidadProductos" class="form-label">Cantidad de productos a cargar:</label>
+                    <input type="number" class="form-control" id="cantidadProductos" [(ngModel)]="cantidadSeleccionada" name="cantidadProductos" required>
+                    <button type="button" class="btn btn-sm btn-outline-primary" (click)="cargarProducto()">Cargar producto</button>
+                 
+                </div>
+            </div>
+          </div>
+      
+          <div class="row align-items-md-stretch">
+            <div class="col-md-6">
+              <div class="h-100 p-5 text-white bg-dark rounded-3">
+                <h1>Nuestros productos</h1>
+                <div style="max-height: 400px; overflow-y: auto;">
+                    <app-listado-producto (productoSeleccionadoEvent)="this.procesarProductoSeleccionado($event)"></app-listado-producto>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="h-100 p-5 bg-light border rounded-3">
+                <h1>Containers</h1>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <span>Código</span>
+                      <span>Color</span>
+                      <span>Empresa</span>
+                      <span>Capacidad</span>
+                      <span></span>
+                    </li>
+                    <li *ngFor="let contenedor of listaContainers"  [class.selected]="contenedor === containerSeleccionado" class="list-group-item d-flex justify-content-between align-items-center" [class.selected]="contenedor.seleccionado">
+                      <span>{{ contenedor.codigo }}</span>
+                      <span>{{ contenedor.color }}</span>
+                      <span>{{ contenedor.empresa }}</span>
+                      <span>{{ contenedor.capacidad }}</span>
+                      <button type="button" class="btn btn-sm btn-outline-primary" (click)="seleccionarContenedor(contenedor)">Seleccionar</button>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+      
+          <footer class="pt-3 mt-4 text-muted border-top">
+            © 2021
+          </footer>
+        </div>
+      </main>
+      
+      
+          
+        
+      
+      </body>

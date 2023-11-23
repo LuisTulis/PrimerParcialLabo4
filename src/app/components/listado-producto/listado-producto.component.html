@@ -1,0 +1,12 @@
+<div class="card-container">
+    <div *ngFor="let producto of listaProductos" class="card" (click)="seleccionarProducto(producto)">
+      <div class="card-content" [class.selected]="producto === productoSeleccionado">
+        <h2>{{ producto.descripcion }}</h2>
+        <p><strong>Origen:</strong> {{ producto.paisDeOrigen }}</p>
+        <p><strong>Stock:</strong>{{producto.stock}}</p>
+        <p><strong>Codigo:</strong>{{producto.codigo}}</p>
+        <p><strong>Precio:</strong>{{producto.precio}}</p>
+      </div>
+      
+    </div>
+  </div>

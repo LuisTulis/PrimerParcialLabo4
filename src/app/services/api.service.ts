@@ -7,11 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  private data  = "https://restcountries.com/v3.1/all"
-  constructor(private httpClient : HttpClient) { }
+  constructor(private http : HttpClient) { }
+
+  getAllCountries() {
+    return this.http.get('https://restcountries.com/v2/all');
+  }
   
-  getData() : Observable<any>
+  getACountry(pais:string)
   {
-    return this.httpClient.get<any>(this.data);
+    return this.http.get('https://restcountries.com/v3.1/name/'+pais);
   }
 }

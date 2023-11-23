@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Producto } from 'src/app/classes/producto';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-alta-producto',
@@ -10,7 +12,7 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 })
 export class AltaProductoComponent {
 
-  constructor(private firestore : FirestoreService, private router : Router) {}
+  constructor(private firestore : FirestoreService, private router : Router, private toast : ToastService) {}
 
   codigoIngresado : string = "";
   esComestible : boolean = false;
@@ -26,6 +28,7 @@ export class AltaProductoComponent {
   {
     if(this.codigoIngresado != "" && this.descripcionIngresada != "" && this.precioIngresado != 0 && this.stockIngresado != 0 && this.paisSeleccionado != "")
     {
+      console.log(this.paisSeleccionado)
       let producto = new Producto(this.codigoIngresado,this.descripcionIngresada,this.precioIngresado,this.stockIngresado,this.paisSeleccionado,this.esComestible)
     
       let productoAAgregar = 
@@ -39,18 +42,17 @@ export class AltaProductoComponent {
       }
     
       const respuesta = await this.firestore.agregarDato('Productos',productoAAgregar);
-      console.log(respuesta);
-      this.logeoExitoso = true;
+      this.toast.showSuccess('','Producto agregado con exito.');
     }
     else
     {
-      this.errorMessage = "Error al agregar el producto"
+      this.toast.showError('ERROR','Error al agregar el producto.')
     }
     
   }
 
   procesarPaisSeleccionado(pais: any) {
-    this.paisSeleccionado = pais.name.common;
+    this.paisSeleccionado = pais;
     // Aquí puedes realizar las acciones que necesites con el país seleccionado
     console.log('País seleccionado:', pais);
   }

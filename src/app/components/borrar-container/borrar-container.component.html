@@ -1,0 +1,7 @@
+<div *ngIf="containerSeleccionado">
+    <p>{{containerSeleccionado.codigo}}</p>
+    <p>{{containerSeleccionado.color}}</p>
+    <p>{{containerSeleccionado.empresa}}</p>
+    <p>{{containerSeleccionado.capacidad}}</p>
+    <button (click)="borrarContainer()" type="button" class="w-100 btn btn-lg btn-outline-primary">Borrar contenedor</button>
+</div>

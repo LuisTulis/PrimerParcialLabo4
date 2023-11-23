@@ -1,0 +1,14 @@
+<div *ngIf="containerSeleccionado">
+    <p>{{containerSeleccionado.codigo}}</p>
+    <select name="color" [(ngModel)]="containerSeleccionado.color">
+       <option value="ROJO">Rojo</option>
+       <option value="VERDE">Verde</option>
+       <option value="AZUL">Azul</option>
+    </select>
+    <br />
+    <input type="text" name="empresa" placeholder="Empresa" [(ngModel)]="containerSeleccionado.empresa" />
+    <br />
+    <input type="number" name="capacidad" placeholder="Capacidad" [(ngModel)]="containerSeleccionado.capacidad"/>
+    
+    <button (click)="modificarContainer()" type="button" class="w-100 btn btn-lg btn-outline-primary">Modificar contenedor</button>
+  </div>

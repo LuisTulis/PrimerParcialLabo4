@@ -1,0 +1,17 @@
+<div>
+    <h2 class="my-4">Información detallada del producto:</h2>
+  
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center">         
+          <div>
+            <p class="mb-1"><strong>Codigo:</strong> {{ productoSeleccionado.codigo }}</p>
+            <p class="mb-1"><strong>Descripcion:</strong> {{ productoSeleccionado.descripcion }}</p>
+            <p class="mb-1"><strong>Precio:</strong> {{ productoSeleccionado.precio }}</p>
+            <p class="mb-1"><strong>Stock:</strong> {{ productoSeleccionado.stock }}</p>
+            <p class="mb-1"><strong>Comestible:</strong> {{ productoSeleccionado.comestible ? 'Sí' : 'No' }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

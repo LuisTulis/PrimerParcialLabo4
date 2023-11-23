@@ -22,11 +22,13 @@ export class TablaPaisesComponent implements OnInit
 
   llenarData()
   {
-    this.api.getData().subscribe(datos => {
+    this.api.getAllCountries().subscribe((datos : any) => {
+      console.log(datos[0])
+      console.log(datos[0].languages[0].name)
       
       for(let i = 0; i< datos.length ; i++)
       {
-        if(datos[i].continents[0] == 'Oceania')
+        if(datos[i].region == 'Oceania')
         {
           this.data.push(datos[i]);
         }
@@ -37,12 +39,13 @@ export class TablaPaisesComponent implements OnInit
 
   filtrarPaises() {
     return this.data.filter(pais => {
-      return pais.name.common.toLowerCase().includes(this.filtroNombre.toLowerCase());
+      return pais.name.toLowerCase().includes(this.filtroNombre.toLowerCase());
     });
   }
 
   seleccionarPais(pais: any) {
     this.paisSeleccionado = pais;
-    this.paisSeleccionadoEvent.emit(pais);
+    console.log(this.paisSeleccionado.name);
+    this.paisSeleccionadoEvent.emit(this.paisSeleccionado.name);
   }
 }

@@ -1,0 +1,66 @@
+<body>    
+    <div class="navbar" style="background-color: #333; color: white; padding: 10px;">
+        <button (click)="redirigirHome()">Volver atrás</button>
+    </div>  
+
+
+    <main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Borrar</h4>
+            </div>
+            <div class="card-body">
+            <app-borrar-container [containerSeleccionado] = "containerSeleccionado"></app-borrar-container>
+            </div>
+        </div>
+        </div>
+        <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Modificar</h4>
+            </div>
+            <div class="card-body">
+            <app-modificar-container [containerSeleccionado]="containerSeleccionado"></app-modificar-container>
+            </div>
+        </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Crear</h4>
+            </div>
+            <app-crear-container (containerCreadoEvent)="this.crearContainerEvent($event)" ></app-crear-container>
+        </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-4">
+        <h2 class="display-6 text-center mb-4">Lista de Contenedores</h2>
+    
+        <ul class="list-group">
+            <!-- Itera sobre la lista de contenedores usando *ngFor -->
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>Código</span>
+                <span>Color</span>
+                <span>Empresa</span>
+                <span>Capacidad</span>
+                <span></span>
+            </li>
+    
+            <!-- Utiliza *ngFor para recorrer la lista de contenedores -->
+            <li *ngFor="let contenedor of listaContainers" class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ contenedor.codigo }}</span>
+                <span>{{ contenedor.color }}</span>
+                <span>{{ contenedor.empresa }}</span>
+                <span>{{ contenedor.capacidad }}</span>
+                <button style="max-width: 10%;" type="button" class="btn btn-sm btn-outline-primary" (click)="seleccionarContenedor(contenedor)">Seleccionar</button>
+            </li>
+    
+        </ul>
+    </div>
+    </main>
+
+</body>

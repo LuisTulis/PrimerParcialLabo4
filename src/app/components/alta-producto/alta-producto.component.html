@@ -40,12 +40,6 @@
                     <app-tabla-paises (paisSeleccionadoEvent)="procesarPaisSeleccionado($event)"></app-tabla-paises>
                 </div>
             </div>
-            <div *ngIf="errorMessage" class="error-message" style="top:77%; right: 20%; position: absolute;">
-                {{ errorMessage }}
-            </div>
-            <div *ngIf="logeoExitoso" class="success-message">
-                Producto registrado con exito.
-            </div>
         </div>
     </div>
 </body>

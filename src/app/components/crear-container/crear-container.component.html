@@ -1,0 +1,14 @@
+<div >
+    <p>{{codigo}}</p>
+    <select name="color" [(ngModel)]="color">
+       <option value="ROJO">Rojo</option>
+       <option value="VERDE">Verde</option>
+       <option value="AZUL">Azul</option>
+    </select>
+    <br />
+    <input type="text" name="empresa" placeholder="Empresa" [(ngModel)]="empresa" />
+    <br />
+    <input type="number" name="capacidad" placeholder="Capacidad" [(ngModel)]="capacidad" />
+    
+    <button (click)="crearContainer()" type="button" class="w-100 btn btn-lg btn-outline-primary">Crear contenedor</button>
+   </div>

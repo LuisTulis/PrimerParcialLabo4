@@ -17,7 +17,7 @@ export class BienvenidaComponent implements OnInit
 
   async ngOnInit() 
   {
-    await this.githubApi.getGithubProfile().subscribe(datos =>
+    this.githubApi.getGithubProfile().subscribe(datos =>
     {
       this.userData = datos;
       console.log(this.userData);
@@ -53,10 +53,26 @@ export class BienvenidaComponent implements OnInit
 
   redirigirAlta()
   {
-    if(this.auth.logueado)
-    {
-      this.router.navigate(['/alta-producto']);
-    }
+    this.router.navigate(['/alta-producto']);
   }
 
+  redirigirDetalle()
+  {
+    this.router.navigate(['/detalle-producto']);
+  }
+
+  redirigirLista()
+  {
+    this.router.navigate(['/lista-producto']);
+  }
+
+  redirigirContainer()
+  {
+    this.router.navigate(['/lista-container']);
+  }
+
+  redirigirCargaContainer()
+  {
+    this.router.navigate(['/carga-container']);
+  }
 }

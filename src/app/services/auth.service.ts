@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 export class AuthService 
 {
   logueado : boolean = false;
+  email : string = "";
 
+  enRegistro : boolean = false;
   
   constructor(private afs: AngularFireAuth, private afAuth : AngularFireAuth, private router : Router) 
   {   }
@@ -26,6 +28,7 @@ export class AuthService
   logOut()
   {
     this.afAuth.signOut();
+    this.email = "";
   }
 
   async logIn(email : string, password: string)
@@ -59,6 +62,7 @@ export class AuthService
       if(errorMessage == "")
       {
         logeoExitoso = true;
+        this.email = email;
         setTimeout(() => {
           this.router.navigate(['/home']); // Cambia '/otra-ruta' a la ruta deseada
         }, 3000);
